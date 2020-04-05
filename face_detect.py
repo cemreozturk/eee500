@@ -33,9 +33,7 @@ def face_detect():
     face_cascade = cv2.CascadeClassifier(
         "/usr/share/opencv4/haarcascades/haarcascade_frontalface_default.xml"
     )
-    eye_cascade = cv2.CascadeClassifier(
-        "/usr/share/opencv4/haarcascades/haarcascade_eye.xml"
-    )
+    
     cap = cv2.VideoCapture(gstreamer_pipeline(), cv2.CAP_GSTREAMER)
     if cap.isOpened():
         cv2.namedWindow("Face Detect", cv2.WINDOW_AUTOSIZE)
@@ -48,11 +46,6 @@ def face_detect():
                 cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
                 roi_gray = gray[y : y + h, x : x + w]
                 roi_color = img[y : y + h, x : x + w]
-                eyes = eye_cascade.detectMultiScale(roi_gray)
-                for (ex, ey, ew, eh) in eyes:
-                    cv2.rectangle(
-                        roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2
-                    )
 
             cv2.imshow("Face Detect", img)
             keyCode = cv2.waitKey(30) & 0xFF
