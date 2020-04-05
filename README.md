@@ -2,9 +2,14 @@
 
 ## Deep Learning for Face Recognation
 
-Script for building OpenCV 4 on the NVIDIA Jetson Nano Developer Kit
+The objective of the face recognition system is to automatically detect faces in a colour image, detect whose face appears, and verify or deny the users for security concerns.
 
 #### Hardware
 
 - Jetson Nano
 - Raspberry Pi Camera
+
+#### Software
+
+- Open CV
+- Numpy
